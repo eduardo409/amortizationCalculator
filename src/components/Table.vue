@@ -1,7 +1,7 @@
 <template>
-<div>
   <v-simple-table 
   fixed-header 
+  v-if="listOfMonths"
   >
       <template v-slot:default>
         <thead>
@@ -14,8 +14,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="month in tableData" :key="month.date">
-            <td>{{month.monthDate}}</td>
+          <tr v-for="month in listOfMonths" :key="month.date">
+            <td>{{month.monthDate | formatDate }}</td>
             <td>${{month.monthPayment.toFixed(2)}}</td>
             <td>${{month.monthPrinciple.toFixed(2)}}</td>
             <td>${{month.monthInterest.toFixed(2)}}</td>
@@ -24,15 +24,19 @@
         </tbody>
       </template>
     </v-simple-table>
-  </div>
 </template>
 
 <script>
 export default {
   name: 'Table',
   props:{
-    tableData: Array,
+    listOfMonths: Array,
     mytext: String,
+  },
+  filters:{
+    formatDate: function(date){
+      return date.format('MMMM YYYY')
+      }
   },
   data: () => ({
   }),

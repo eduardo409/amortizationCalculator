@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 var moment = require('moment');
 module.exports =  class Calculator {
     constructor(){}
@@ -19,11 +20,11 @@ module.exports =  class Calculator {
             let monthPayment = payment
             while(monthBalance > 0){
                 monthDate = monthDate.add(1,'months')
-                let monthInterest = apr * balance /12
+                let monthInterest = apr * monthBalance /12
                 monthPayment = monthBalance < monthPayment ? monthInterest + monthBalance : payment
                 let monthPrinciple = monthPayment - monthInterest
                 monthBalance = monthBalance - monthPrinciple
-                listOfPayments.push({monthDate, monthPayment, monthPrinciple, monthInterest, monthBalance})
+                listOfPayments.push({'monthDate':monthDate.clone(), monthPayment, monthPrinciple, monthInterest, monthBalance})
             resolve(listOfPayments)
         }   
 

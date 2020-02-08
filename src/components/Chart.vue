@@ -3,11 +3,12 @@
 </template>
 
 <script>
-import Chart from 'chart.js';
+/* eslint-disable no-console */
 
+import Chart from 'chart.js';
 export default {
-  name: 'monthly-sales-chart',
-  props: {
+  name: 'chart',
+props: {
     // The canvas's width.
     width: {
       type: Number,
@@ -32,8 +33,31 @@ export default {
     // The chart's options.
     options: Object
   },
+  data() {
+    return {
+      // Data that will hold the Chart.js instance.
+      chart: null
+    };
+  },
+  watch: {
+    // Watch for the datasets changes.
+    labels(newLabels) {
+      // Replace the datasets and call the update() method on Chart.js
+      // instance to re-render the chart.
+      console.log(newLabels)
+      this.chart.data.labels = newLabels;
+      this.chart.update();
+    }, 
+    datasets(newData) {
+        console.log("dataset change")
+        this.chart.data.datasets = newData;
+        this.chart.update();
+    }
+
+  },
   mounted() {
-    new Chart(this.$refs.myChart, {
+    // Store the created instance.
+    this.chart = new Chart(this.$refs.myChart, {
       type: 'line',
       data: {
         labels: this.labels,

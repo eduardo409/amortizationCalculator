@@ -16,13 +16,13 @@
         target="_blank"
         text
       >
-        <span class="mr-2">Creator</span>
+        <span class="mr-2">Documentation</span>
         <v-icon>mdi-git</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HomePage/>
+      <HomePage lg="12"/>
     </v-content>
   </v-app>
 </template>

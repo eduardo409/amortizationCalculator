@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="myChart" :width="width" :height="height"></canvas>
+  <canvas class = "chart" ref="myChart" :width="width" :height="height"></canvas>
 </template>
 
 <script>
@@ -65,6 +65,17 @@ props: {
       },
       options: this.options
     });
+  },
+  beforeDestroy () {
+    // Don't forget to destroy the Chart.js instance.
+    if (this.chart) {
+      this.chart.destroy()
+    }
   }
 }
 </script>
+<style  scoped>
+.chart{
+  background: white
+}
+</style>

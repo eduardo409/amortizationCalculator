@@ -21,7 +21,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
+    <v-content lg="12">
       <HomePage lg="12"/>
     </v-content>
   </v-app>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form">
     <h3>
       <!-- Balance:{{entries.bal.value}}
       APR:{{entries.apr.value}}
@@ -47,8 +47,11 @@
 <script>
 export default {
   name: 'Form',
+  props:{
+    entries:Object
+  },
   data: () => ({
-      entries:{bal:{rep:"Balance",value:8500}, apr:{rep:"APR",value:12.74}, monthPayment:{rep:"Monthly Payment",value:1200}},
+      // entries:{bal:{rep:"Balance",value:8500}, apr:{rep:"APR",value:12.74}, monthPayment:{rep:"Monthly Payment",value:1200}},
       tableData: null,
       loading:false,
   }),
@@ -77,3 +80,8 @@ export default {
   }
 };
 </script>
+<style >
+  .form{
+    background: white
+  }
+</style>

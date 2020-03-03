@@ -1,16 +1,15 @@
 <template>
   <div class="slider">
-    <h1>Balance:{{sliders.bal.value}}</h1>
-    <h1>APR:{{sliders.apr.value}}</h1>
-    <h1>Monthly Payment:{{sliders.monthPayment.value}}</h1>
+    <h1>APR:{{value}}</h1>
    <v-slider
-          v-for="(element, index) in sliders" :key="index"
         lg="4" sm="2" md="4"
         :color="color"
-        v-model="element.value"
+        v-model="value"
         track-color="grey"
         always-dirty
-        max="10000"
+        min="0"
+        max="100"
+        step=".05"
       >
           <template v-slot:prepend>
           <v-icon
@@ -37,7 +36,7 @@
 export default {
   name: 'Sliders',
   props:{
-    sliders: Object
+    value: Number
   },
   computed:{
     color () {
@@ -49,7 +48,8 @@ export default {
       }
   },
   data: () => ({
-    value:0
+    step:.05
+
     }),
   created(){
   },
@@ -58,10 +58,10 @@ export default {
   },
   methods: {
       decrement () {
-        this.value--
+        this.value = this.value - this.step
       },
       increment () {
-        this.value++
+        this.value = this.value + this.step
       },
     },
 

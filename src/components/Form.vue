@@ -1,11 +1,5 @@
 <template>
   <div class="form">
-    <h3>
-      <!-- Balance:{{entries.bal.value}}
-      APR:{{entries.apr.value}}
-      Monthly Payment:{{entries.monthPayment.value}} <br>
-      loading: {{loading}} -->
-    </h3>
     <v-form>
     <v-container>
       <v-row>
@@ -81,6 +75,9 @@ export default {
 };
 </script>
 <style >
+.loading{
+  background: red
+}
   .form{
     background: white
   }

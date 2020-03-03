@@ -4,7 +4,7 @@
   v-if="listOfMonths"
   >
       <template v-slot:default>
-        <thead>
+        <thead >
           <tr>
             <th class="text-left">Payment Date</th>
             <th class="text-left">Payment</th>
@@ -42,3 +42,12 @@ export default {
   }),
 };
 </script>
+<style  scoped>
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+</style>

@@ -1,27 +1,23 @@
 <template>
   <div class="homepage" >
-    <!-- listOfMonths:{{listOfMonths}} -->
-    <!-- listOfLabels:{{labels}}  -->
-    <!-- dataInterest:{{datasets[0].data}} -->
-    <!-- Balance: {{total.balance}}<br/> -->
-    <!-- total interest cost: {{total.intrest}}<br/>
-    total number of months: {{total.time}}<br/> -->
-      <v-container class = "homepage-container">
       <v-row lg="12" sm="12" md="12">
         <v-col lg="12" sm="12" md="12">
                 <Form
+                  :loading="loading1"
                   :entries="entries"
                   />
         </v-col>
       </v-row>
       <v-row lg="12" sm="12" md="12">
-        <v-col lg="4" sm="4" md="4">
-          <Sliders :sliders="entries"/>
-        </v-col>
-        <v-col lg="4" sm="4" md="4">
+         <v-col lg="12" sm="12" md="4">
           <InfoPanel :data="info"/>
         </v-col>
-        <v-col lg="4" sm="4" md="4">
+      </v-row>
+      <v-row lg="12" sm="12" md="12">
+        <!-- <v-col lg="4" sm="4" md="4">
+          <Sliders :value="entries.apr.value"/>
+        </v-col> -->
+        <v-col lg="8" sm="8" md="8">
             <line-chart
               :width="500"
               :height="300"
@@ -37,7 +33,6 @@
             ></Table>
         </v-col>
       </v-row>
-    </v-container>
   </div>
 </template>
 
@@ -47,7 +42,7 @@ var Calculator = require('../Repo/Calculator')
 import Form from "./Form";
 import Table from './Table'
 import LineChart from "./Chart"
-import Sliders from './Sliders'
+// import Sliders from './Sliders'
 import InfoPanel from './InfoPanel'
 export default {
   name: 'HomePage',
@@ -55,10 +50,11 @@ export default {
     Form,
     LineChart,
     Table,
-    Sliders,
+    // Sliders,
     InfoPanel
   },
   data: () => ({
+    loading1:false,
     listOfMonths: null,
     labels: [],
     entries:{bal:{rep:"Balance",value:7700}, apr:{rep:"APR",value:12.46}, monthPayment:{rep:"Monthly Payment",value:1200}},
@@ -82,6 +78,7 @@ export default {
       this.info.intrest.value =  this.listOfMonths.map(month => month.monthInterest).reduce((a, b) => a + b, 0)
       this.info.time.value =  this.listOfMonths.map(month => month.monthInterest).length
       this.info.balance.value = this.entries.bal.value
+      // this.loading1 = false
     }
   },
   methods:{
@@ -94,6 +91,7 @@ export default {
         console.log('building charts')
       },
       async buildTable(bal,apr,monthPayment){
+      this.loading1 = true
       console.log(bal, apr, monthPayment)
       let calculator = new Calculator()
       let decimalAPR = calculator.percentToDecimal(apr)
@@ -108,6 +106,9 @@ export default {
 </script> 
 <style scoped>
 .homepage{
+  /* background: green */
+}
+.loading{
   background: red
 }
 /* .homepage-container{

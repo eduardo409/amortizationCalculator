@@ -48,6 +48,6 @@ export default {
 </script>
 <style>
  .infoPanel{
-   background: red
+   background: blue
  }
 </style>

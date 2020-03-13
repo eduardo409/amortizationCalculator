@@ -60,7 +60,7 @@ export default {
     entries:{bal:{rep:"Balance",value:7700}, apr:{rep:"APR",value:12.46}, monthPayment:{rep:"Monthly Payment",value:1200}},
     info:{balance:{title:'Balance', value: 0},intrest:{title:'Interest', value:0},time:{title:'Time',value:0}},
     datasets: [{  
-    label: 'Intrest',
+    label: 'Interest',
     borderColor: 'RED',
     backgroundColor: 'rgba(241, 169, 160, 1)',
     data: []},

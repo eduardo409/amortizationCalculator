@@ -2,10 +2,9 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
-      dark
+      color="#a6d0e4"
     >
-      <div class="d-flex align-center">
+      <div class="d-flex align-center appBar">
         {{appName}}
       </div>
 
@@ -20,7 +19,6 @@
         <v-icon>mdi-git</v-icon>
       </v-btn>
     </v-app-bar>
-
     <v-content lg="12">
       <HomePage lg="12"/>
     </v-content>
@@ -42,3 +40,8 @@ export default {
   }),
 };
 </script>
+<style scoped>
+.appBar{
+  color :"red"
+}
+</style>

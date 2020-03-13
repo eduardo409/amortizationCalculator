@@ -1,8 +1,12 @@
 <template>
   <div class="infoPanel">
     <H1 v-for="(item,index) in data" :key="index">
-      {{item.title}}:
+      <span  v-if="item.title != 'Time'">
+        {{item.title}}:
+      </span>
+      <span v-bind:class="{ red: item.title == 'Interest' }">
       <b>{{item.value | format(item.title) }}</b>
+      </span>
     </H1>
   </div>
 </template>
@@ -47,6 +51,7 @@ export default {
 }
 </script>
 <style>
- .infoPanel{
+ .red{
+   background: red
  }
 </style>

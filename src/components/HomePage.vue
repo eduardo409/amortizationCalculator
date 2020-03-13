@@ -10,7 +10,9 @@
       </v-row>
       <v-row lg="12" sm="12" md="12">
          <v-col lg="12" sm="12" md="4">
-          <InfoPanel :data="info"/>
+          <InfoPanel
+           v-if="datasets[0].data.length != 0"
+           :data="info"/>
         </v-col>
       </v-row>
       <v-row lg="12" sm="12" md="12">
@@ -19,6 +21,7 @@
         </v-col> -->
         <v-col lg="8" sm="8" md="8">
             <line-chart
+              v-if="datasets[0].data.length != 0"
               :width="500"
               :height="300"
               v-bind:labels=labels

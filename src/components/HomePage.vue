@@ -68,7 +68,7 @@ export default {
     backgroundColor: 'rgba(241, 169, 160, 1)',
     data: []},
     {
-    label: 'Balance',
+    label: 'Principle',
     borderColor: 'GREEN',
     backgroundColor: 'rgba(170, 212, 195, 0.48)',
     data: []}],

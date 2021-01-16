@@ -1,5 +1,5 @@
 # interest-calculator
-RUNIING APP: https://vue-app-faylzhowga-uc.a.run.app/?fbclid=IwAR3tDWk5mFBQus8G5vOVOI4YaKdJEUXEXnKcHqf-n6lnAlochzJo8qaoGyg
+RUNING APP: nubefamosa.com
 ## Project setup
 ```
 npm install

@@ -1,5 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+/* eslint no-console:  */
+
 // Imports the Secret Manager library
 const { SecretManagerServiceClient } = require('@google-cloud/secret-manager');
 
@@ -19,13 +21,13 @@ async function accessSecret(secret) {
   return payload
 }
 async function setup() {
-  apiKey = await accessSecret("apiKey")
-  authDomain = await accessSecret("authDomain")
-  projectId = await accessSecret("projectId")
-  storageBucket = await accessSecret("storageBucket")
-  messagingSenderId = await accessSecret("messagingSenderId")
-  appId = await accessSecret("appId")
-  measurementId = await accessSecret("measurementId")
+  var apiKey = await accessSecret("apiKey")
+  var authDomain = await accessSecret("authDomain")
+  var projectId = await accessSecret("projectId")
+  var storageBucket = await accessSecret("storageBucket")
+  var messagingSenderId = await accessSecret("messagingSenderId")
+  var appId = await accessSecret("appId")
+  var measurementId = await accessSecret("measurementId")
 
   // Get a Firestore instance
   firebaseConfig = {

@@ -15,6 +15,7 @@ async function accessSecret(secret) {
 
   // Extract the payload as a string.
   const payload = version.payload.data.toString();
+  console.log("payload: " +payload)
   return payload
 }
 async function setup() {

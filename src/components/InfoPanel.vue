@@ -22,8 +22,6 @@ export default {
   filters:{
     format: function(value, type){
       let amount = Number(Number(value).toFixed(2).replace('.',''))
-      /* eslint-disable no-console */
-      console.log(amount)
       if(type !== "Time"){
         return  Dinero({amount}).toFormat('$0,0.00')
       }

@@ -56,6 +56,7 @@ export default {
     // Sliders,
     InfoPanel
   },
+  props:["incrementCounter"],
   data: () => ({
     loading1:false,
     listOfMonths: null,
@@ -87,20 +88,15 @@ export default {
   methods:{
       async updateComponents(bal,apr,monthPayment){
         await this.buildTable(bal,apr,monthPayment)
-      },
-      buildChart(){
-        console.log('building charts')
-        // this.labels = this.listOfMonth.map(month => month.monthDate)
-        console.log('building charts')
+        this.incrementCounter();
+
       },
       async buildTable(bal,apr,monthPayment){
       this.loading1 = true
-      console.log(bal, apr, monthPayment)
       let calculator = new Calculator()
       let decimalAPR = calculator.percentToDecimal(apr)
       await calculator.schedule(parseFloat(bal), parseFloat(monthPayment), parseFloat(decimalAPR)).then((result =>{
          this.listOfMonths = result
-         console.log(JSON.stringify(result))
       }))
       
     }

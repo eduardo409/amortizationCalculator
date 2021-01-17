@@ -44,12 +44,10 @@ props: {
     labels(newLabels) {
       // Replace the datasets and call the update() method on Chart.js
       // instance to re-render the chart.
-      console.log(newLabels)
       this.chart.data.labels = newLabels;
       this.chart.update();
     }, 
     datasets(newData) {
-        console.log("dataset change")
         this.chart.data.datasets = newData;
         this.chart.update();
     }

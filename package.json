@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@google-cloud/secret-manager": "^3.3.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.4.4",
     "dinero.js": "^1.6.0",
     "firebase": "^8.2.3",
